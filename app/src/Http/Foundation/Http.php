@@ -11,7 +11,8 @@ namespace App\Http\Foundation;
  */
 use App\Http\Foundation\QueryString;
 
-class Http {
+class Http
+{
     /**
      * @property String uri
      * 
@@ -40,7 +41,8 @@ class Http {
      * @param none
      * @return none
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->uri = $_SERVER['REQUEST_URI'];
         $this->method = $_SERVER['REQUEST_METHOD'];
 
@@ -52,7 +54,8 @@ class Http {
      * @param none
      * @return string
      */
-    public function getUri(): string {
+    public function getUri(): string
+    {
         return $this->uri;
     }
 
@@ -62,7 +65,8 @@ class Http {
      * @param none
      * @return string
      */
-    public function getMethod(): string {
+    public function getMethod(): string
+    {
         return $this->method;
     }
 
@@ -71,7 +75,8 @@ class Http {
      * @param string key you want to get
      * @return string value associated to the key if exists else null
      */
-    public function get(string $key): ?string {
+    public function get(string $key): ?string
+    {
         return $this->queryString->get($key);
     }
 }

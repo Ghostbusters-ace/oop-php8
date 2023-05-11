@@ -8,8 +8,8 @@
  * Every request will be dispatched by this file
  */
 
- ini_set('display_errors', true);
- error_reporting(E_ALL);
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 
 // Class loader
 require_once('./../vendor/autoload.php');
