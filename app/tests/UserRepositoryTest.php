@@ -5,8 +5,12 @@ use PHPUnit\Framework\TestCase;
 use App\Repositories\Impl\UserRepository;
 use App\Entities\User;
 
-final class UserRepositoryTest extends TestCase {
-    public function testCorrectCredentials(): void {
+
+final class UserRepositoryTest extends TestCase
+{
+    public function testCorrectCredentials(): void
+    {
+
         $username = 'jlaubert';
         $password = 'jlaubert';
 
@@ -17,7 +21,10 @@ final class UserRepositoryTest extends TestCase {
         $this->assertInstanceOf(User::class, $user);
     }
 
-    public function testBadCredentials(): void {
+
+    public function testBadCredentials(): void
+    {
+
         $username = 'jlaubert';
         $password = 'toto';
 
@@ -28,7 +35,8 @@ final class UserRepositoryTest extends TestCase {
         $user = $repository->findByLoginAndPassword($username, $password);
     }
 
-    public function testInjection(): void {
+    public function testInjection(): void
+    {
         $username = 'jlaubert\'; -- ';
         $password = 'toto';
 
@@ -36,6 +44,7 @@ final class UserRepositoryTest extends TestCase {
 
         $this->expectException(\RuntimeException::class);
 
-        $user = $repository->findByLoginAndPassword($username, $password);        
+        $user = $repository->findByLoginAndPassword($username, $password);
     }
+
 }

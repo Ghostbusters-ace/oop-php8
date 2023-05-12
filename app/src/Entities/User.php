@@ -9,7 +9,8 @@ namespace App\Entities;
  * Entity related to users from database
  */
 
-final class User {
+final class User
+{
     /**
      * @property int
      * 
@@ -33,7 +34,8 @@ final class User {
      * @param int
      * @return void
      */
-    public function setId(int $id): void {
+    public function setId(int $id): void
+    {
         $this->id = $id;
     }
 
@@ -43,7 +45,8 @@ final class User {
      * @param none
      * @return int | null
      */
-    public function getId(): ?int {
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
@@ -53,7 +56,8 @@ final class User {
      * @param String
      * @return void
      */
-    public function setUsername(string $username): void {
+    public function setUsername(string $username): void
+    {
         $this->username = $username;
     }
 
@@ -63,7 +67,8 @@ final class User {
      * @param void
      * @return string
      */
-    public function getUsername(): ?string {
+    public function getUsername(): ?string
+    {
         return $this->username;
     }
 
@@ -73,7 +78,8 @@ final class User {
      * @param String
      * @return void
      */
-    public function setPassword(string $password): void {
+    public function setPassword(string $password): void
+    {
         $this->password = $password;
     }
 
@@ -83,7 +89,8 @@ final class User {
      * @param void
      * @return string
      */
-    public function getPassword(): ?string {
+    public function getPassword(): ?string
+    {
         return $this->password;
     }
 }

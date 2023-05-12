@@ -14,12 +14,15 @@ use App\Repositories\RepositoryInterface;
 use App\Entities\User;
 use App\Db\MariaDb\MariaDb;
 
-final class UserRepository implements RepositoryInterface {
-    public function findAll(): array {
+final class UserRepository implements RepositoryInterface
+{
+    public function findAll(): array
+    {
         return [];
     }
 
-    public function findOne(int $id) {
+    public function findOne(int $id)
+    {
         return new User();
     }
 
@@ -30,13 +33,14 @@ final class UserRepository implements RepositoryInterface {
      * @param String password
      * @return User
      */
-    public function findByLoginAndPassword(string $login, string $password): User {
+    public function findByLoginAndPassword(string $login, string $password): User
+    {
         $sqlQuery = 'SELECT id, username, password FROM users WHERE ';
         $sqlQuery .= 'username = ? AND ';
         $sqlQuery .= 'password = PASSWORD(?);';
 
-        
-        
+
+
         // Let's connect to RDBMS
         $mariaDB = new MariaDb();
         $connection = $mariaDB->getConnection();
@@ -61,7 +65,7 @@ final class UserRepository implements RepositoryInterface {
                 $user->setId($row['id']);
                 $user->setUsername($row['username']);
                 $user->setPassword($row['password']);
-    
+
                 return $user;
             }
         }

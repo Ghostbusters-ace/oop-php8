@@ -1,7 +1,8 @@
 <?php
 namespace App\Repositories;
 
-interface RepositoryInterface {
+interface RepositoryInterface
+{
     /**
      * Get all of entities
      * 

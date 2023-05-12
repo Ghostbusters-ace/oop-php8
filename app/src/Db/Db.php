@@ -9,10 +9,11 @@ namespace App\Db;
  * Abstract class for db connections
  */
 
- // Imports
- use App\Utils\Files\DotEnv;
+// Imports
+use App\Utils\Files\DotEnv;
 
-abstract class Db {
+abstract class Db
+{
     /**
      * @property String
      * 
@@ -49,12 +50,14 @@ abstract class Db {
      */
     protected $connection;
 
-    public function __construct() {
+    public function __construct()
+    {
         // Sets properties from dotEnv
         $this->_loadFromDotEnv();
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         return $this->connection;
     }
 
@@ -70,7 +73,8 @@ abstract class Db {
      * @param none
      * @return void
      */
-    private function _loadFromDotEnv(): void {
+    private function _loadFromDotEnv(): void
+    {
         // Load datas from DotEnv
         try {
             DotEnv::load();
@@ -79,11 +83,10 @@ abstract class Db {
             $this->password = $_ENV['MARIADB_PASSWORD'];
             $this->dbName = $_ENV['MARIADB_DATABASE'];
             $this->address = $_ENV['MARIADB_HOST'];
-            
-        } catch(\RuntimeException $e) {
+
+        } catch (\RuntimeException $e) {
             echo 'Fatal error : ' . $e->getMessage();
             die();
         }
     }
-
 }
