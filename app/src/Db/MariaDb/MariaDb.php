@@ -33,6 +33,11 @@ final class MariaDb extends Db
             $this->password,
             $this->dbName
         );
+
+        if ($this->connection->connect_error) {
+            /* Use your preferred error logging method here */
+            error_log('Connection error: ' . $this->connection->connect_error);
+        }
     }
 
     public function __toString(): string

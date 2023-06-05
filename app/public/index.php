@@ -14,13 +14,24 @@ error_reporting(E_ALL);
 // Class loader
 require_once('./../vendor/autoload.php');
 
-// Setting imports
-use App\Http\Foundation\Http;
+use App\Routing\RouterConfig;
 
-$request = new Http();
-//echo $request->getUri();
-//echo $request->getMethod();
+$routerConfig = new RouterConfig();
 
-// echo $_GET['firstname'];
+$match = $routerConfig->match();
 
-echo $request->get('firstname');
+if (array_key_exists('name', $match)) {
+    echo 'Route exists with ' . $match['name'];
+    // Get the controller and the method from matcher
+    $controllerAction = explode('#', $match['target']);
+    $controllerName = $controllerAction[0]; // App\Controllers\UserController
+    $controllerMethod = $controllerAction[1]; // loginForm
+
+    // Instanciate dynamically the controller
+    $controller = new $controllerName();
+    // Call the associated method
+    echo $controller->$controllerMethod();
+
+} else {
+    echo 'ko';
+}
