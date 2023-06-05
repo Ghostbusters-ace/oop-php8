@@ -1,7 +1,7 @@
 <?php
 namespace App\Routing;
 
-use AltoRouter;
+use \AltoRouter;
 
 /**
  * RouterConfig
@@ -35,8 +35,13 @@ final class RouterConfig extends AltoRouter
         ]
     ];
 
+    /**
+     * Class constructor
+     *  Setup the class
+     */
     public function __construct()
     {
+        parent::__construct();
         $this->_mapRoutes();
     }
 

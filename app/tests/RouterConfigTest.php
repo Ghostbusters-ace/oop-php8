@@ -41,13 +41,14 @@ final class RouterConfigTest extends TestCase
         $this->assertEquals(count($setupRoutes), 2);
     }
 
+
     public function testRouteWithUserLoginFormExists(): void
     {
         $routerConfig = new RouterConfig();
 
         // Simulate a Client request
-        $client = new Client();
-        $response = $client->get('/user/login');
+        $_SERVER['REQUEST_URI'] = '/user/login';
+        $_SERVER['REQUEST_METHOD'] = 'GET';
 
         // Test matching
         $match = $routerConfig->match();

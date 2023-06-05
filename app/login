@@ -1,0 +1,11 @@
+<br />
+<b>Warning</b>:  Undefined array key 1 in <b>/var/www/app/src/Http/Foundation/QueryString.php</b> on line <b>52</b><br />
+<br />
+<b>Deprecated</b>:  htmlentities(): Passing null to parameter #1 ($string) of type string is deprecated in <b>/var/www/app/src/Http/Foundation/QueryString.php</b> on line <b>52</b><br />
+<br />
+<b>Fatal error</b>:  Uncaught TypeError: App\Http\Foundation\QueryString::get(): Return value must be of type ?string, none returned in /var/www/app/src/Http/Foundation/QueryString.php:34
+Stack trace:
+#0 /var/www/app/src/Http/Foundation/Http.php(75): App\Http\Foundation\QueryString-&gt;get('firstname')
+#1 /var/www/app/public/index.php(26): App\Http\Foundation\Http-&gt;get('firstname')
+#2 {main}
+  thrown in <b>/var/www/app/src/Http/Foundation/QueryString.php</b> on line <b>34</b><br />
